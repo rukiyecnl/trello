@@ -96,17 +96,17 @@ function App() {
       <Header />
       <div className="container">
         <div className="main-content">
-          <div className="todos">
+          <div className="todos card">
 
-            <div className="todo-header">
+            <div className="todo-header card-header">
               <p>Yapılacaklar</p>
               <a href="#">...</a>
             </div>
 
-            <ul className="todo-karts">
+            <ul className="todo-karts card-list">
                 {todos.map((todo,index) => {
                   return(
-                    <li key={index}>
+                    <li key={index} className='list-item todo-item'>
                       <p>{todo.todo}</p>
                       <button onClick={() => handleAddInProgress(todo.id)}>Yapılıyora ekle</button>
                       <button onClick={() => handleDeleteTodo("trelloTodos",todo.id)}>🗑️</button>
@@ -116,28 +116,28 @@ function App() {
             </ul>
             {isCardAdd 
             ? 
-              (<button onClick={() => SetIsCard(false)}>Kart ekle</button>) 
+              (<button className='add-card' onClick={() => SetIsCard(false)}>Kart ekle</button>) 
             : 
               (
                 <div>
                   <input type="text" placeholder='boş' onChange={(e) => setTodoTitle(e.target.value)}/>
-                  <button onClick={() => handleCardAddBtn("trelloTodos")}>Kart ekle</button>
+                  <button className='add-card' onClick={() => handleCardAddBtn("trelloTodos")}>Kart ekle</button>
                 </div>
 
               )}
             
           </div>
 
-          <div className="in-progress">
-              <div className="in-progress-header">
+          <div className="in-progress card">
+              <div className="in-progress-header card-header">
                 <p>Yapılıyor</p>
                 <a href="#">...</a>
               </div>
 
-              <ul className="in-progress-karts">
+              <ul className="in-progress-karts card-list">
                   {inProgress.map((todo,index) => {
                     return(
-                      <li key={index}>
+                      <li key={index} className='list-item progress-item'>
                         <p>{todo.todo}</p>
                         <button onClick={() => handleAddDone(todo.id)}>Bitir</button>
                         <button onClick={() => handleDeleteTodo("trelloInProgress",todo.id)}>🗑️</button>
@@ -147,28 +147,28 @@ function App() {
               </ul>
               {isCardAdd2 
               ? 
-                (<button onClick={() => SetIsCard2(false)}>Kart ekle</button>) 
+                (<button className='add-card' onClick={() => SetIsCard2(false)}>Kart ekle</button>) 
               : 
                 (
                   <div>
                     <input type="text" placeholder='boş' onChange={(e) => setTodoTitle(e.target.value)}/>
-                    <button onClick={() => handleCardAddBtn("trelloInProgress")}>Kart ekle</button>
+                    <button className='add-card' onClick={() => handleCardAddBtn("trelloInProgress")}>Kart ekle</button>
                   </div>
 
                 )}
 
           </div>
 
-          <div className="done">
-              <div className="done-header">
+          <div className="done card">
+              <div className="done-header card-header">
                 <p>Bitti</p>
                 <a href="#">...</a>
               </div>
 
-              <ul className="done-karts">
+              <ul className="done-karts card-list">
                   {done.map((todo,index) => {
                     return(
-                      <li key={index}>
+                      <li key={index} className='list-item done-item'>
                         <p>{todo.todo}</p>
                         <button onClick={() => handleDeleteTodo("trelloDone",todo.id)}>🗑️</button>
                       </li>
@@ -177,12 +177,12 @@ function App() {
               </ul>
               {isCardAdd3
               ? 
-                (<button onClick={() => SetIsCard3(false)}>Kart ekle</button>) 
+                (<button className='add-card' onClick={() => SetIsCard3(false)}>Kart ekle</button>) 
               : 
                 (
                   <div>
                     <input type="text" placeholder='boş' onChange={(e) => setTodoTitle(e.target.value)}/>
-                    <button onClick={() => handleCardAddBtn("trelloDone")}>Kart ekle</button>
+                    <button className='add-card' onClick={() => handleCardAddBtn("trelloDone")}>Kart ekle</button>
                   </div>
 
                 )}
